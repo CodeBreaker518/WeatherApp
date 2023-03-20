@@ -32,6 +32,7 @@ body {
   border-radius: 20px;
   padding: 1rem;
 }
+
 .app-description span {
   margin-left: 10px;
   font-weight: 400;
@@ -124,12 +125,21 @@ body {
 }
 
 .weather-box .temperature {
+  cursor: pointer;
+  background-color: #dff6ff;
   position: relative;
   color: #06283d;
   font-size: 4rem;
+  border-radius: 20px;
   font-weight: 800;
   margin-top: 30px;
   margin-left: -16px;
+  padding: 5px;
+}
+
+.temperature:hover {
+  background: #06283d;
+  color: #ffffff;
 }
 
 .weather-box .temperature span {

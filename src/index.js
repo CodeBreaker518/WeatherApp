@@ -47,7 +47,7 @@ search.addEventListener('click', () => {
       const modifiedIcon = currentIcon.replace('64x64', '128x128')
       image.src = modifiedIcon
 
-      temperature.innerHTML = `${json.current.temp_c}<span>°C</span>`
+      temperature.innerHTML = `${json.current.temp_f}<span>°F</span>`
       description.innerHTML = json.current.condition.text
       humidity.innerHTML = `${json.current.humidity}%`
       wind.innerHTML = `${json.current.wind_kph}Km/h`
@@ -57,6 +57,18 @@ search.addEventListener('click', () => {
       weatherBox.classList.add('fadeIn')
       weatherDetails.classList.add('fadeIn')
       container.style.height = '590px'
+
+      const temperatureBox = document.querySelector('.weather-box .temperature')
+      temperatureBox.addEventListener('click', () => {
+        let temperatureDegrees = document.querySelector('.weather-box .temperature').innerHTML
+        let newTemperature = document.querySelector('.weather-box .temperature')
+        if (temperatureDegrees.includes('°C')) {
+          newTemperature.innerHTML = `${json.current.temp_f}<span>°F</span>`
+        } else if (temperatureDegrees.includes('°F')) {
+          newTemperature.innerHTML = `${json.current.temp_c}<span>°C</span>`
+        }
+      })
+      //yo
     })
     .catch((err) => console.log(err))
 })
