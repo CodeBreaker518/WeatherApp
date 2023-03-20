@@ -43,7 +43,9 @@ search.addEventListener('click', () => {
       const humidity = document.querySelector('.weather-details .humidity span')
       const wind = document.querySelector('.weather-details .wind span')
 
-      image.src = json.current.condition.icon
+      const currentIcon = json.current.condition.icon
+      const modifiedIcon = currentIcon.replace('64x64', '128x128')
+      image.src = modifiedIcon
 
       temperature.innerHTML = `${json.current.temp_c}<span>°C</span>`
       description.innerHTML = json.current.condition.text
@@ -56,4 +58,5 @@ search.addEventListener('click', () => {
       weatherDetails.classList.add('fadeIn')
       container.style.height = '590px'
     })
+    .catch((err) => console.log(err))
 })
