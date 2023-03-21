@@ -68,7 +68,6 @@ search.addEventListener('click', () => {
           newTemperature.innerHTML = `${json.current.temp_c}<span>°C</span>`
         }
       })
-      //yo
     })
     .catch((err) => console.log(err))
 })
