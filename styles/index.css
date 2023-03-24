@@ -70,6 +70,19 @@ body {
   transition: 0.6s ease-out;
 }
 
+.time-box {
+  margin-top: 20px;
+  width: 100%;
+  height: min-content;
+  align-items: center;
+}
+.time-box p {
+  color: #06283d;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .search-box {
   width: 100%;
   height: min-content;
@@ -156,7 +169,8 @@ body {
 }
 
 .weather-box,
-.weather-details {
+.weather-details,
+.time-box {
   scale: 0;
   opacity: 0;
 }

@@ -5,6 +5,7 @@ const weatherDetails = document.querySelector('.weather-details')
 const error404 = document.querySelector('.not-found')
 const API = `https://weatherapi-com.p.rapidapi.com/current.json?q=`
 const temperatureBox = document.querySelector('.weather-box .temperature')
+const timeBox = document.querySelector('.time-box')
 let data
 
 search.addEventListener('click', () => {
@@ -33,6 +34,7 @@ search.addEventListener('click', () => {
         weatherDetails.style.display = 'none'
         error404.style.display = 'block'
         error404.classList.add('fadeIn')
+        timeBox.style.display = 'none'
         return
       }
       console.log(data)
@@ -45,6 +47,15 @@ search.addEventListener('click', () => {
       const description = document.querySelector('.weather-box .description')
       const humidity = document.querySelector('.weather-details .humidity span')
       const wind = document.querySelector('.weather-details .wind span')
+      const localtime = document.querySelector('.localtime .time')
+      const localdate = document.querySelector('.localtime .date')
+
+      let dateTime = data.location.localtime.split(' ')
+      let date = dateTime[0]
+      let time = dateTime[1]
+
+      localdate.textContent = date
+      localtime.textContent = time
 
       const currentIcon = data.current.condition.icon
       const modifiedIcon = currentIcon.replace('64x64', '128x128')
@@ -59,7 +70,9 @@ search.addEventListener('click', () => {
       weatherDetails.style.display = ''
       weatherBox.classList.add('fadeIn')
       weatherDetails.classList.add('fadeIn')
-      container.style.height = '590px'
+      timeBox.style.display = ''
+      timeBox.classList.add('fadeIn')
+      container.style.height = '650px'
     })
     .catch((err) => console.log(err))
 })
@@ -69,9 +82,7 @@ temperatureBox.addEventListener('click', () => {
   let newTemperature = document.querySelector('.weather-box .temperature')
   if (temperatureDegrees.includes('°C')) {
     newTemperature.innerHTML = `${data.current.temp_f}<span>°F</span>`
-    console.log('cambiada a farenheit')
   } else {
     newTemperature.innerHTML = `${data.current.temp_c}<span>°C</span>`
-    console.log('cambiada a celcius')
   }
 })
