@@ -62,7 +62,7 @@ body {
 
 .container {
   background: #ffffff;
-  width: 400px;
+  width: 350px;
   height: 105px;
   position: relative;
   padding: 28px 32px;
@@ -81,6 +81,11 @@ body {
   text-align: center;
   font-size: 20px;
   font-weight: 500;
+}
+.localtime {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .search-box {
