@@ -15,7 +15,7 @@ main {
 body {
   /* background: #06283d; */
   background-image: url('../images/background-wallpaper.jpg');
-  min-height: 900px;
+  min-height: 800px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
